@@ -31,3 +31,5 @@ use the editor.
 
 - Landing page copy lives in src/lib/i18n.ts (en/ku/ar, fallback to en); keep all visible text there so translations stay in one place.
 - Open/closed logic lives in src/lib/hours.ts (Asia/Baghdad) and is covered by src/test/hours.test.ts.
+
+- Serve image files from public/images using root-relative /images paths so static hosts need no asset proxy.

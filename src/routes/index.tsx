@@ -2,22 +2,22 @@ import { createFileRoute } from "@tanstack/react-router";
 import { useEffect, useRef, useState } from "react";
 import { isOpenNow } from "@/lib/hours";
 import { LANGS, t as makeT, type Lang } from "@/lib/i18n";
-import logoT from "@/assets/logo-terracotta.png.asset.json";
-import logoC from "@/assets/logo-cream.png.asset.json";
-import hero6 from "@/assets/hero-matcha-640.webp.asset.json";
-import hero12 from "@/assets/hero-matcha-1200.webp.asset.json";
-import cro6 from "@/assets/croissants-640.webp.asset.json";
-import cro12 from "@/assets/croissants-1200.webp.asset.json";
-import cin6 from "@/assets/cinnamon-rolls-640.webp.asset.json";
-import cin12 from "@/assets/cinnamon-rolls-1200.webp.asset.json";
-import coo6 from "@/assets/cookies-640.webp.asset.json";
-import coo12 from "@/assets/cookies-1200.webp.asset.json";
-import ben6 from "@/assets/bench-640.webp.asset.json";
-import ben12 from "@/assets/bench-1200.webp.asset.json";
-import cup6 from "@/assets/cups-640.webp.asset.json";
-import cup12 from "@/assets/cups-1200.webp.asset.json";
-import piz6 from "@/assets/pizza-640.webp.asset.json";
-import piz12 from "@/assets/pizza-1200.webp.asset.json";
+const logoT = "/images/logo-terracotta.png";
+const logoC = "/images/logo-cream.png";
+const hero6 = "/images/hero-matcha-640.webp";
+const hero12 = "/images/hero-matcha-1200.webp";
+const cro6 = "/images/croissants-640.webp";
+const cro12 = "/images/croissants-1200.webp";
+const cin6 = "/images/cinnamon-rolls-640.webp";
+const cin12 = "/images/cinnamon-rolls-1200.webp";
+const coo6 = "/images/cookies-640.webp";
+const coo12 = "/images/cookies-1200.webp";
+const ben6 = "/images/bench-640.webp";
+const ben12 = "/images/bench-1200.webp";
+const cup6 = "/images/cups-640.webp";
+const cup12 = "/images/cups-1200.webp";
+const piz6 = "/images/pizza-640.webp";
+const piz12 = "/images/pizza-1200.webp";
 
 const PHONE = "+9647702224441";
 const PHONE_LABEL = "+964 770 222 4441";
@@ -55,8 +55,7 @@ export const Route = createFileRoute("/")({
   component: Index,
 });
 
-type Img = { url: string };
-const src = (a: Img, b: Img) => ({ src: b.url, srcSet: `${a.url} 640w, ${b.url} 1200w` });
+const src = (a: string, b: string) => ({ src: b, srcSet: `${a} 640w, ${b} 1200w` });
 
 /* ---------- motion hooks (transform/opacity only) ---------- */
 function useReveal() {
@@ -179,7 +178,7 @@ function Index() {
       <header className={`site-header fixed inset-x-0 top-0 z-50 ${hidden ? "hidden-up" : ""} ${solid ? "bg-background" : ""}`}>
         <div className="mx-auto flex max-w-7xl items-center justify-between px-5 py-3">
           <a href="#top" aria-label="Mars Bakery & Café — top">
-            <img src={solid ? logoT.url : logoC.url} alt="Mars Bakery and Café" width={898} height={388} className="h-9 w-auto" />
+            <img src={solid ? logoT : logoC} alt="Mars Bakery and Café" width={898} height={388} className="h-9 w-auto" />
           </a>
           <nav className={`hidden gap-8 text-sm font-medium md:flex ${solid ? "text-foreground" : "text-cream"}`}>
             <a href="#menu" className="hover:text-accent">{t("nav_menu")}</a>
@@ -337,7 +336,7 @@ function Index() {
       {/* 7. Footer */}
       <footer className="bg-primary px-5 pb-10 pt-20 text-primary-foreground">
         <div className="mx-auto max-w-7xl">
-          <img src={logoC.url} alt="Mars Bakery and Café" width={898} height={388} loading="lazy" decoding="async" className="w-full max-w-3xl" />
+          <img src={logoC} alt="Mars Bakery and Café" width={898} height={388} loading="lazy" decoding="async" className="w-full max-w-3xl" />
           <Wheat className="mt-8 w-56 text-accent" />
           <div className="mt-10 flex flex-wrap justify-between gap-4 text-sm opacity-80">
             <span>© {new Date().getFullYear()} {t("footer")}</span>
