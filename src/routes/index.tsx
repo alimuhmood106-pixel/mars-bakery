@@ -21,7 +21,8 @@ import piz12 from "@/assets/pizza-1200.webp.asset.json";
 
 const PHONE = "+9647702224441";
 const PHONE_LABEL = "+964 770 222 4441";
-const MAPS = "https://www.google.com/maps/search/?api=1&query=HC64%2B457%20Sulaymaniyah";
+const MAPS = "https://www.google.com/maps/dir/?api=1&destination=35.5605904,45.4055081&destination_place_id=ChIJbXz7SwAvAEAReUhDJyecnM0";
+const MAP_EMBED = "https://www.google.com/maps?q=Mars+Bakery+%26+Cafe@35.5605904,45.4055081&z=17&output=embed";
 const IG = "https://www.instagram.com/mars.bakerycafe";
 const FB = "https://www.facebook.com/marsbakerycafe/";
 
@@ -203,9 +204,9 @@ function Index() {
         <div className="relative mx-auto w-full max-w-7xl px-5 pb-32 pt-28 md:pb-14">
           <span className="mb-6 inline-flex min-h-9 items-center gap-2 rounded-full bg-cream px-4 text-sm font-medium text-chocolate">
             <span className={`h-2 w-2 rounded-full ${open ? "bg-matcha" : "bg-accent"}`} />
-            {open === null ? "2 PM – 12 AM" : open ? t("open_now") : t("opens_at")}
+            {open === null ? t("hours_short") : open ? t("open_now") : t("opens_at")}
           </span>
-          <h1 className="font-display text-[34vw] leading-[0.8] md:text-[19rem]" aria-label="Mars">
+          <h1 className="font-display text-[34vw] leading-[0.8] md:text-[19rem]" aria-label="Mars" dir="ltr">
             {wordmark.map((c, i) => (
               <span key={i} className="letter" style={{ animationDelay: `${120 + i * 90}ms` }} aria-hidden>{c}</span>
             ))}
@@ -246,10 +247,10 @@ function Index() {
 
         <div className="mt-16 grid grid-cols-2 gap-x-5 gap-y-14 md:grid-cols-12 md:gap-x-8">
           <Tile className="col-span-2 md:col-span-6" img={src(cro6, cro12)} w={1152} h={1440} sizes="(min-width:768px) 50vw, 100vw" rot={-1.5}
-            title={t("croissant")} desc={t("croissant_d")} tag="pistachio!" />
+            title={t("croissant")} desc={t("croissant_d")} tag={t("tag_croissant")} />
           <div className="col-span-2 flex flex-col gap-14 md:col-span-5 md:col-start-8 md:pt-32">
             <Tile img={src(cin6, cin12)} w={1440} h={1494} sizes="(min-width:768px) 40vw, 100vw" rot={2} delay={80}
-              title={t("cinnamon")} desc={t("cinnamon_d")} tag="still warm" />
+              title={t("cinnamon")} desc={t("cinnamon_d")} tag={t("tag_cinnamon")} />
             <div className="reveal relative rounded-[var(--radius)] bg-primary p-8 text-primary-foreground" style={{ transform: "rotate(-1deg)" }}>
               <Wheat className="mb-4 w-32 text-accent" />
               <h3 className="text-4xl">{t("sourdough")}</h3>
@@ -258,10 +259,10 @@ function Index() {
           </div>
 
           <Tile className="col-span-2 md:col-span-7 md:-mt-10" img={src(coo6, coo12)} w={1440} h={1495} sizes="(min-width:768px) 58vw, 100vw" rot={1}
-            title={t("cookies")} desc={t("cookies_d")} tag="red velvet ♥" />
+            title={t("cookies")} desc={t("cookies_d")} tag={t("tag_cookies")} />
           <div className="col-span-2 md:col-span-4 md:col-start-9 md:pt-40">
             <Tile img={src(hero6, hero12)} w={1536} h={1920} sizes="(min-width:768px) 33vw, 100vw" rot={-2.5} delay={80}
-              title={t("smores")} desc={t("smores_d")} tag="+ iced matcha" />
+              title={t("smores")} desc={t("smores_d")} tag={t("tag_smores")} />
             <p className="reveal mt-6 text-sm text-muted-foreground"><span className="font-display text-xl text-matcha">{t("matcha")}.</span> {t("matcha_d")}</p>
           </div>
 
@@ -271,7 +272,7 @@ function Index() {
             <p className="mt-2 text-muted-foreground">{t("espresso_d")}</p>
           </div>
           <Tile className="col-span-2 md:col-span-6 md:col-start-7" img={src(piz6, piz12)} w={1440} h={1920} sizes="(min-width:768px) 50vw, 100vw" rot={1.5}
-            title={t("pizza")} desc={t("pizza_d")} tag="hot slice" />
+            title={t("pizza")} desc={t("pizza_d")} tag={t("tag_pizza")} />
         </div>
       </section>
 
@@ -314,7 +315,7 @@ function Index() {
             <p className="text-sm font-medium uppercase tracking-[0.2em] text-accent">{t("visit_kicker")}</p>
             <h2 className="mt-4 text-6xl text-primary md:text-8xl">{t("visit_title")}</h2>
             <dl className="mt-10 space-y-6">
-              <div><dt className="text-xs uppercase tracking-widest text-muted-foreground">{t("address")}</dt><dd className="mt-1 font-display text-2xl">HC64+457, Sulaymaniyah</dd></div>
+              <div><dt className="text-xs uppercase tracking-widest text-muted-foreground">{t("address")}</dt><dd className="mt-1 font-display text-2xl">{t("address_v")}</dd></div>
               <div><dt className="text-xs uppercase tracking-widest text-muted-foreground">{t("hours")}</dt><dd className="mt-1 font-display text-2xl">{t("hours_v")}</dd></div>
               <div><dt className="text-xs uppercase tracking-widest text-muted-foreground">{t("phone")}</dt><dd className="mt-1"><a href={`tel:${PHONE}`} dir="ltr" className="font-display text-2xl underline decoration-accent underline-offset-4">{PHONE_LABEL}</a></dd></div>
               <div><dt className="text-xs uppercase tracking-widest text-muted-foreground">{t("follow")}</dt>
@@ -324,15 +325,12 @@ function Index() {
                 </dd></div>
             </dl>
           </div>
-          {/* Styled "map" card instead of a heavy iframe */}
-          <a href={MAPS} target="_blank" rel="noopener" className="reveal paper group relative flex min-h-[22rem] flex-col justify-between overflow-hidden rounded-[var(--radius)] border border-border p-8 md:col-span-6 md:col-start-7" style={{ transform: "rotate(1deg)" }}>
-            <span className="sticker w-24 self-end bg-matcha text-sm text-chocolate" style={{ ["--rot" as string]: "10deg" }}>2 PM – 12 AM</span>
-            <div>
-              <span className="mb-4 block h-6 w-6 rounded-full border-4 border-cream bg-primary" />
-              <p className="font-display text-5xl text-primary">HC64+457</p>
-              <span className="mt-6 inline-flex min-h-12 items-center rounded-full bg-primary px-7 font-medium text-primary-foreground transition-transform duration-500 group-hover:-translate-y-0.5">{t("directions")} →</span>
-            </div>
-          </a>
+          {/* Interactive map */}
+          <div className="reveal paper relative flex min-h-[26rem] flex-col overflow-hidden rounded-[var(--radius)] border border-border md:col-span-6 md:col-start-7" style={{ transform: "rotate(1deg)" }}>
+            <iframe src={MAP_EMBED} title={t("map_title")} loading="lazy" referrerPolicy="no-referrer-when-downgrade" allowFullScreen className="min-h-[22rem] w-full flex-1 border-0" />
+            <span className="sticker absolute end-4 top-4 w-24 bg-matcha text-sm text-chocolate" style={{ ["--rot" as string]: "10deg" }}>{t("hours_short")}</span>
+            <a href={MAPS} target="_blank" rel="noopener" className="m-4 inline-flex min-h-12 items-center justify-center rounded-full bg-primary px-7 font-medium text-primary-foreground transition-transform duration-500 hover:-translate-y-0.5">{t("directions")} →</a>
+          </div>
         </div>
       </section>
 
