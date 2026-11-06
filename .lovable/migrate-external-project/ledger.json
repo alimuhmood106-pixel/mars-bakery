@@ -1,1 +1,5 @@
-[{"capability":"code","source":"archive","outcome":"migrate","status":"verified","next_action":null},{"capability":"database/auth/integrations","source":"none detected","outcome":"n/a","status":"verified","next_action":null}]
+[
+  {"capability":"code, pages, translations, opening hours","source":"archive","outcome":"migrate","status":"verified","next_action":null},
+  {"capability":"database, users, integrations","source":"none detected","outcome":"n/a","status":"verified","next_action":null},
+  {"capability":"photos and logos (14 images)","source":"original project's asset storage","outcome":"migrate","status":"pending","next_action":"User uploads the image files or shares the original site's published URL"}
+]
