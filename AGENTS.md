@@ -28,3 +28,6 @@ use the editor.
   own key and store it in Secrets.
 - **Secrets.** Lovable manages them. Do not put secret values in the repo.
 <!-- LOVABLE:END -->
+
+- Landing page copy lives in src/lib/i18n.ts (en/ku/ar, fallback to en); keep all visible text there so translations stay in one place.
+- Open/closed logic lives in src/lib/hours.ts (Asia/Baghdad) and is covered by src/test/hours.test.ts.
